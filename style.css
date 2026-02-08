@@ -1,0 +1,29 @@
+style.css
+header {
+    background-color:#725939; 
+    height:20%;
+}
+
+nav {
+    background-color:#9e8c70;
+    width:15%;
+    height:40%;
+    float:left;
+    color: rgb(58, 105, 19);
+}
+
+main {
+    background-color:#bce68c;
+    height:75%;
+}
+
+footer {
+    background-color:#154108;
+    clear:both;
+    height:20%;
+}
+
+header h1 {
+
+    color: rgb(26, 37, 27);
+}

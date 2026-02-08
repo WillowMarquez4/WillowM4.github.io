@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Your first HTML form, styled</title>
+    <style>
+        form {
+            /* Just to center the form on the page */
+            margin: 0 auto;
+            width: 400px;
+            /* To see the outline of the form */
+            padding: 1em;
+            border: 1px solid #ccc;
+            border-radius: 1em;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        form li+li {
+            margin-top: 1em;
+        }
+
+        label {
+            /* To make sure that all labels have the same size and are properly aligned */
+            display: inline-grid;
+            width: 120px;
+            text-align: right;
+        }
+
+        input,
+        textarea {
+            /* To make sure that all text fields have the same font settings By default, textareas have a monospace font */
+            font: 1em sans-serif;
+            /* To give the same size to all text fields */
+
+            box-sizing: border-box;
+            /* To harmonize the look & feel of text field border */
+            border: 1px solid #999;
+        }
+
+        textarea {
+            /* To properly align multiline text fields with their labels */
+            vertical-align: top;
+            /* To give enough room to type some text */
+            height: 5em;
+        }
+        input[tyoe="tel"]:valid{
+            border:2px solid green;
+        }
+        .radio-group{
+            text-align: left;
+            margin-left: 140px;
+        }
+
+        .button {
+            /* To position the buttons to the same position of the text fields */
+            padding-left: 90px;
+            /* same size as the label elements */
+        }
+
+        button {
+            /* This extra margin represent roughly the same space as the space between the labels and their text fields */
+            margin-left: 0.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <form method="post">
+        <ul>
+            <li>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="user_name" />
+            </li>
+            <li>
+                <label for="mail">E-mail:</label>
+                <input type="email" id="mail" name="user_mail" />
+            </li>
+            <li>
+                <lable for="phone">Phone:</lable>
+                <input
+                type="tel"
+                id="phone"
+                name="user_phone"
+                placeholder="505-224-3000"
+                pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                required
+                />
+            </li>
+            <li>
+                <lable>Preferd Contact:</lable>
+                <div class="radio-group">
+                    <input type="radio" id="text" name="contact_method" value="test" required>
+                    <lable for="text">Text</lable><br>
+                     <input type="radio" id="phoneContact" name="contact_method" value="phone">
+                    <label for="phoneContact">Phone</label><br>
+
+                    <input type="radio" id="emailContact" name="contact_method" value="email">
+                    <label for="emailContact">Email</label>
+                </div>
+            </li>
+            <li>
+                <label for="msg">Message:</label>
+                <textarea id="msg" name="user_message"></textarea>
+            </li>
+            <li class="button">
+                <button type="submit">Send your message</button>
+            </li>
+        </ul>
+    </form>
+</body>
+
+</html>

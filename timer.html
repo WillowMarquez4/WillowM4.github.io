@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Countdown Timer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin: 0 10px;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        #countdown {
+            font-size: 2em;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Countdown Timer</h1>
+        <div id="countdown">
+            <span id="days"></span> Days
+            <span id="hours"></span> Hours
+            <span id="minutes"></span> Minutes
+            <span id="seconds"></span> Seconds
+        </div>
+    </div>
+
+    <script>
+const countDownDate = new Date(2026, 11, 31, 23, 59, 59).getTime();
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = countDownDate - now;
+
+    if(distance < 0){
+        clearInterval(interval);
+        document.getElementById("countdown").textContent = "EXPIRED";
+        return;
+    }
+
+    document.getElementById("days").textContent = Math.floor(distance / (1000 * 60 * 60 * 24));
+    document.getElementById("hours").textContent = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    document.getElementById("minutes").textContent = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    document.getElementById("seconds").textContent = Math.floor((distance % (1000 * 60)) / 1000);
+}
+
+const interval = setInterval(updateCountdown, 1000);
+updateCountdown();
+</script>
+
+</body>
+</html>
